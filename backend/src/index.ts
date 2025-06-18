@@ -6,10 +6,14 @@ import cors from 'cors';
 import productsRouter from './routes/products';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongo:27017/nitted';
 
 mongoose.connect(MONGODB_URI, {

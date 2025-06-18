@@ -3,10 +3,23 @@ import Product from '../models/Product';
 
 const router = Router();
 
-// Получить все товары
+// Получить все товары с сортировкой
 router.get('/', async (req, res) => {
   try {
-    const products = await Product.find();
+    const { sortBy, order } = req.query; // Получаем параметры сортировки из запроса
+    let sortOptions: { [key: string]: 1 | -1 } = {};
+
+    // Устанавливаем сортировку по умолчанию (по возрастающей популярности)
+    if (sortBy === 'rating') {
+      sortOptions.rating = order === 'desc' ? -1 : 1;
+    } else if (sortBy === 'price') {
+      sortOptions.price = order === 'desc' ? -1 : 1;
+    } else {
+      // Сортировка по умолчанию: по возрастающей популярности
+      sortOptions.rating = 1;
+    }
+
+    const products = await Product.find().sort(sortOptions);
     res.json(products);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
