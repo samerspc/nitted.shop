@@ -39,8 +39,8 @@ router.get('/:id', async (req, res) => {
 
 // Добавить новый товар
 router.post('/', async (req, res) => {
-  const { name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating } = req.body;
-  const product = new Product({ name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating });
+  const { name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price } = req.body;
+  const product = new Product({ name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price });
   try {
     const newProduct = await product.save();
     res.status(201).json(newProduct);
