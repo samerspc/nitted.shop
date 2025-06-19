@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { productApi } from '../../shared/api/productApi';
 import { IProduct } from '../../entities/Product';
+import { objectStorageApi } from '../../shared/api/objectStorageApi';
 
 const AdminPanelPage: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -98,6 +99,9 @@ const AdminPanelPage: React.FC = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
         {products.map((product) => (
           <div key={product._id} style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px' }}>
+            {product.images && product.images.length > 0 && (
+              <img src={product.images[0]} alt={product.name} style={{ width: '100%', height: 150, objectFit: 'cover', borderRadius: 6, marginBottom: 10 }} />
+            )}
             <h3>{product.name}</h3>
             <p>Brand: {product.brand}</p>
             <p>Price: ${product.price}</p>
@@ -129,13 +133,16 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
     name: product?.name || '',
     brand: product?.brand || '',
     images: product?.images || [],
-    inStock: product?.inStock || true,
+    inStock: product?.inStock ?? true,
     sizesEu: product?.sizesEu || [],
     sizesUs: product?.sizesUs || [],
     sizesMm: product?.sizesMm || [],
     rating: product?.rating || 0,
     price: product?.price || 0,
   });
+  const [uploading, setUploading] = useState(false);
+  const [localPreviews, setLocalPreviews] = useState<string[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (product) {
@@ -165,6 +172,73 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
     }
   }, [product]);
 
+  // Drag&Drop обработчики
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      handleFiles(Array.from(e.dataTransfer.files));
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  // Обычный выбор файлов
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('handleFileChange called', e.target.files);
+    if (e.target.files && e.target.files.length > 0) {
+      handleFiles(Array.from(e.target.files));
+    }
+  };
+
+  // Основная функция для обработки файлов
+  const handleFiles = (files: File[]) => {
+    console.log('handleFiles called', files);
+    // Предпросмотр до загрузки
+    const previews = files.map(file => URL.createObjectURL(file));
+    setLocalPreviews(prev => [...prev, ...previews]);
+    uploadFiles(files, previews);
+  };
+
+  // Загрузка файлов
+  const uploadFiles = async (files: File[], previews: string[]) => {
+    console.log('uploadFiles called', files);
+    setUploading(true);
+    try {
+      const urls: string[] = [];
+      for (const file of files) {
+        const url = await objectStorageApi.uploadImage(file);
+        urls.push(url);
+      }
+      setFormData((prev) => ({
+        ...prev,
+        images: [...prev.images, ...urls],
+      }));
+    } finally {
+      setLocalPreviews((prev) => prev.filter((p) => !previews.includes(p)));
+      setUploading(false);
+    }
+  };
+
+  // Удаление картинки из формы и из Object Storage
+  const handleRemoveImage = async (url: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      images: prev.images.filter((img) => img !== url),
+    }));
+    try {
+      await objectStorageApi.deleteImage(url);
+    } catch {
+      alert('Ошибка при удалении изображения из Object Storage');
+    }
+  };
+
+  // Удаление локального превью (до загрузки)
+  const handleRemovePreview = (preview: string) => {
+    setLocalPreviews((prev) => prev.filter((p) => p !== preview));
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
     setFormData((prev) => ({
@@ -184,10 +258,66 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSave(product ? { ...formData, _id: product._id } : formData);
+    console.log(formData);
   };
 
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: '30px', padding: '20px', border: '1px solid #eee', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '10px' }}>
+        <label style={{ display: 'block', marginBottom: '5px' }}>Images:</label>
+        <div
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          style={{
+            border: '2px dashed #aaa',
+            borderRadius: 8,
+            padding: 16,
+            textAlign: 'center',
+            marginBottom: 8,
+            background: uploading ? '#f9f9f9' : undefined,
+            cursor: 'pointer'
+          }}
+          onClick={() => {
+            console.log('Drop area clicked, opening file dialog');
+            fileInputRef.current?.click();
+          }}
+        >
+          {uploading ? 'Загрузка...' : 'Перетащите файлы сюда или кликните для выбора'}
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={handleFileChange}
+            disabled={uploading}
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+          />
+        </div>
+        {/* Предпросмотр до загрузки */}
+        {localPreviews.length > 0 && (
+          <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+            {localPreviews.map((preview) => (
+              <div key={preview} style={{ position: 'relative' }}>
+                <img src={preview} alt="preview" style={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 4, opacity: 0.7 }} />
+                <button type="button" onClick={() => handleRemovePreview(preview)} style={{
+                  position: 'absolute', top: 0, right: 0, background: 'red', color: 'white', border: 'none', borderRadius: '50%', width: 20, height: 20, cursor: 'pointer'
+                }}>×</button>
+              </div>
+            ))}
+          </div>
+        )}
+        {/* Уже загруженные картинки */}
+        <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+          {formData.images.map((url) => (
+            <div key={url} style={{ position: 'relative' }}>
+              <img src={url} alt="preview" style={{ width: 60, height: 60, objectFit: 'cover', borderRadius: 4 }} />
+              <button type="button" onClick={() => handleRemoveImage(url)} style={{
+                position: 'absolute', top: 0, right: 0, background: 'red', color: 'white', border: 'none', borderRadius: '50%', width: 20, height: 20, cursor: 'pointer'
+              }}>×</button>
+            </div>
+          ))}
+        </div>
+      </div>
       <div style={{ marginBottom: '10px' }}>
         <label style={{ display: 'block', marginBottom: '5px' }}>Name:</label>
         <input type="text" name="name" value={formData.name} onChange={handleChange} required style={{ width: '100%', padding: '8px' }} />
@@ -195,10 +325,6 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
       <div style={{ marginBottom: '10px' }}>
         <label style={{ display: 'block', marginBottom: '5px' }}>Brand:</label>
         <input type="text" name="brand" value={formData.brand} onChange={handleChange} required style={{ width: '100%', padding: '8px' }} />
-      </div>
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ display: 'block', marginBottom: '5px' }}>Images (comma-separated URLs):</label>
-        <input type="text" name="images" value={formData.images.join(', ')} onChange={handleArrayChange} style={{ width: '100%', padding: '8px' }} />
       </div>
       <div style={{ marginBottom: '10px' }}>
         <label style={{ display: 'block', marginBottom: '5px' }}>Price:</label>

@@ -22,6 +22,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<>2</>} />
         <Route path="/admin" element={<AdminPanelPage />} />
         <Route path="*" element={<h1>404: Not Found</h1>}/>
       </Routes>
