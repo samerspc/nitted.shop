@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aeroport'), url('./fonts/Aeroport-regular-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Aeroport'), url('./fonts/Aeroport-regular-italic-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Aeroport'), url('./fonts/Aeroport-light-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Aeroport'), url('./fonts/Aeroport-light-italic-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Aeroport'), url('./fonts/Aeroport-medium-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Aeroport'), url('./fonts/Aeroport-medium-italic-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Aeroport'), url('./fonts/Aeroport-bold-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Aeroport'), url('./fonts/Aeroport-bold-italic-trial.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Aeroport'), url('./fonts/Aeroport-black.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Aeroport'), url('./fonts/Aeroport-black-italic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aeroport Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aeroport Mono'), url('./fonts/Aeroport-monospaced-trial.woff') format('woff');
+}
