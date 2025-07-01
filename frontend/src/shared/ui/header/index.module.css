@@ -1,0 +1,128 @@
+.display-none {
+    display: none;
+}
+
+/* .aps_position {
+    position: absolute;
+} */
+
+.wrapper {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: white;
+    padding: 4px;
+    background: rgba(62, 57, 76, 1);;
+}
+
+.middle_content_wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    gap: 0;
+    align-items: center;
+    position: relative;
+    left: calc(50% - 57px - 400px); /* 50% - {logo width} - {search wrapper width} */
+}
+
+.search_wrapper {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.search_wrapper img {
+    width: 13px;
+    height: 13px;
+}
+
+.search_wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    line-height: 100%;
+}
+
+.search_wrapper input:hover,
+.search_wrapper input:focus,
+.search_wrapper input:active {
+    outline: none;
+}
+
+.middle_content_wrapper nav {
+    display: flex;
+    gap: 4px;
+}
+
+.Link {
+    text-decoration: none;
+    color: var(--color-main);
+    padding: 4px;
+    background: transparent;
+    transition: background 0.4s ease-out;
+    font-size: 17px;
+}
+
+.cart {
+    cursor: pointer;
+    font-size: 17px;
+    margin-left: auto;
+    padding: 4px;
+    transition: background 0.4s ease-out;
+}
+
+.Link:hover, .cart:hover {
+    background: var(--color-second);
+}
+
+@media (max-width: 1800px) {
+    .logo {
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+        color: white;
+        padding: 4px;
+        background: rgba(62, 57, 76, 1);;
+    }
+
+    .middle_content_wrapper {
+        position: relative;
+        left: calc(50% - 57px - 278px);
+    }
+
+    .search_wrapper {
+        width: 278px;
+        height: 100%;
+    }
+    
+    .search_wrapper input {
+        font-size: 14px;
+    }
+    
+    .Link {
+        font-size: 14px;
+    }
+
+    .cart {
+        font-size: 14px;
+    }
+
+}

@@ -1,25 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import AdminPanelPage from '../pages/AdminPanelPage';
 import { useState } from 'react'
 import './App.css'
+import Header from '../shared/ui/header';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin Panel</Link>
-          </li>
-        </ul>
-      </nav>
-
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<>2</>} />
@@ -27,7 +18,7 @@ function App() {
         <Route path="*" element={<h1>404: Not Found</h1>}/>
       </Routes>
 
-      <div>
+      {/* <div>
       </div>
       <h1>Vite + React</h1>
       <div className="card">
@@ -40,7 +31,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </Router>
   )
 }

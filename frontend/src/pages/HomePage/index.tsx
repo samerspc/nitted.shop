@@ -1,12 +1,15 @@
-import React from 'react';
+import { FC } from 'react';
 
-const HomePage: React.FC = () => {
-  return (
-    <div>
-      <h1>nitted main page</h1>
-      <p>всем привет одежда вот такая</p>
-    </div>
-  );
+import HeroSection from '@shared/ui/HeroSection';
+import MainQuote from '@shared/ui/MainQuote';
+
+const HomePage: FC = () => {
+  return ( <>
+    
+      <HeroSection />
+      <MainQuote />
+    
+    </>);
 };
 
 export default HomePage; 
