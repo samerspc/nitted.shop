@@ -18,9 +18,9 @@ html, body {
 }
 
 :root {
-  font-family: 'Aeroport', sans-serif;
+  font-family: 'Aeroport Mono';
 
-  color: black;
+  color: rgba(62, 57, 76, 1);
   background-color: #fff;
 
   text-rendering: optimizeLegibility;
@@ -109,4 +109,12 @@ html, body {
   font-family: "Crimson Text", serif;
   font-weight: 700;
   font-style: italic;
+}
+
+.main-color {
+  color: var(--сolor-main);
+}
+
+.second-color {
+  color: var(--color-second);
 }

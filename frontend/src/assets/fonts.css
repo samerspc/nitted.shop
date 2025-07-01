@@ -66,3 +66,11 @@
     font-weight: 400;
     src: local('Aeroport Mono'), url('./fonts/Aeroport-monospaced-trial.woff') format('woff');
 }
+
+.aeroport-mono {
+    font-family: 'Aeroport Mono';
+}
+
+.aeroport {
+    font-family: 'Aeroport', sans-serif;
+}
