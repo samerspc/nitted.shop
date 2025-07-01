@@ -3,23 +3,20 @@ import Product from '../models/Product';
 
 const router = Router();
 
-// Получить все товары с сортировкой
+// Получить все товары
 router.get('/', async (req, res) => {
   try {
-    const { sortBy, order } = req.query; // Получаем параметры сортировки из запроса
-    let sortOptions: { [key: string]: 1 | -1 } = {};
-
-    // Устанавливаем сортировку по умолчанию (по возрастающей популярности)
-    if (sortBy === 'rating') {
-      sortOptions.rating = order === 'desc' ? -1 : 1;
-    } else if (sortBy === 'price') {
-      sortOptions.price = order === 'desc' ? -1 : 1;
-    } else {
-      // Сортировка по умолчанию: по возрастающей популярности
-      sortOptions.rating = 1;
+    const { sortBy, order, gender } = req.query;
+    const filter: any = {};
+    if (gender === 'male' || gender === 'female') {
+      filter.gender = gender;
     }
-
-    const products = await Product.find().sort(sortOptions);
+    let query = Product.find(filter);
+    if (sortBy && (sortBy === 'rating' || sortBy === 'price')) {
+      const sortOrder = order === 'asc' ? 1 : -1;
+      query = query.sort({ [sortBy]: sortOrder });
+    }
+    const products = await query;
     res.json(products);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -39,8 +36,8 @@ router.get('/:id', async (req, res) => {
 
 // Добавить новый товар
 router.post('/', async (req, res) => {
-  const { name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price } = req.body;
-  const product = new Product({ name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price });
+  const { name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price, gender } = req.body;
+  const product = new Product({ name, brand, images, inStock, sizesEu, sizesUs, sizesMm, rating, price, gender });
   try {
     const newProduct = await product.save();
     res.status(201).json(newProduct);

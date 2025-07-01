@@ -10,6 +10,7 @@ export interface IProduct extends Document {
   sizesMm: string[];
   rating: number;
   price: number;
+  gender: 'male' | 'female';
 }
 
 const ProductSchema = new Schema<IProduct>({
@@ -22,6 +23,7 @@ const ProductSchema = new Schema<IProduct>({
   sizesMm: [{ type: String }],
   rating: { type: Number, default: 0 },
   price: { type: Number, required: true },
+  gender: { type: String, enum: ['male', 'female'], required: true },
 }, { timestamps: true });
 
 const Product = model<IProduct>('Product', ProductSchema);
