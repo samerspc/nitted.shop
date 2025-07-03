@@ -1,5 +1,5 @@
-.display-none {
-    display: none;
+.display_none {
+    display: none !important;
 }
 
 /* .aps_position {

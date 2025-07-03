@@ -6,12 +6,15 @@ import searchIcon from '/header/search.svg'
 
 const Header: FC = () => {
     let hide: boolean = false;
-    if (location.pathname === '/product') hide = true;
+    if (location.pathname.startsWith('/product')) hide = true;
+    console.log(location.pathname)
 
     const navigate = useNavigate();
     const cartHandleClick = ():void => {
         navigate('/cart')
     }
+
+
 
     return (
         <header className={`block ${styles.wrapper} ${hide ? styles.display_none : ''}`}>
