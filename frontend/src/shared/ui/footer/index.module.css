@@ -1,0 +1,32 @@
+.wrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.wrapper a {
+    text-decoration: none;
+}
+
+.logo {
+    padding: 4px;
+    background-color: var(--сolor-main);
+    color: white;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+}
+
+.kaya {
+    color: var(--сolor-main);
+    padding: 4px;
+    transition: background 0.4s ease-out;
+}
+
+.kaya:hover {
+    background: var(--color-second);
+}

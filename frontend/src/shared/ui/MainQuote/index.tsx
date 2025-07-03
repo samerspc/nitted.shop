@@ -16,7 +16,7 @@ const MainQuote: FC = () => {
             <div className={`${styles.subtitle} second-color`}>
                 <p>nitted.</p>
                 <p>2025</p>
-                <p>swag?</p>
+                <p>swag<span className="aeroport">?</span></p>
             </div>
 
         </section>
