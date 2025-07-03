@@ -6,10 +6,13 @@ const router = Router();
 // Получить все товары
 router.get('/', async (req, res) => {
   try {
-    const { sortBy, order, gender } = req.query;
+    const { sortBy, order, gender, brand } = req.query;
     const filter: any = {};
     if (gender === 'male' || gender === 'female') {
       filter.gender = gender;
+    }
+    if (brand) {
+      filter.brand = brand;
     }
     let query = Product.find(filter);
     if (sortBy && (sortBy === 'rating' || sortBy === 'price')) {
@@ -84,6 +87,36 @@ router.post('/:id/increment-rating', async (req, res) => {
     res.json(updatedProduct);
   } catch (err: any) {
     res.status(400).json({ message: err.message });
+  }
+});
+
+// Получить все бренды с фильтрацией по полу
+router.get('/brands/all', async (req, res) => {
+  try {
+    const filter: any = {};
+    if (req.query.gender === 'male' || req.query.gender === 'female') {
+      filter.gender = req.query.gender;
+    }
+    const brands = await Product.distinct('brand', filter);
+    res.json(brands);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Получить все размеры с фильтрацией по полу
+router.get('/sizes/all', async (req, res) => {
+  try {
+    const filter: any = {};
+    if (req.query.gender === 'male' || req.query.gender === 'female') {
+      filter.gender = req.query.gender;
+    }
+    const sizesEu = await Product.distinct('sizesEu', filter);
+    const sizesUs = await Product.distinct('sizesUs', filter);
+    const sizesMm = await Product.distinct('sizesMm', filter);
+    res.json({ sizesEu, sizesUs, sizesMm });
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
   }
 });
 
