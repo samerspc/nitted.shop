@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { productApi } from '../../shared/api/productApi';
-import { IProduct } from '../../entities/Product';
+import { IProduct } from '../../entities/Product/types/Product';
 import { objectStorageApi } from '../../shared/api/objectStorageApi';
 
 const AdminPanelPage: React.FC = () => {
@@ -86,7 +86,7 @@ const AdminPanelPage: React.FC = () => {
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '100px' }}>
       <h1>Admin Panel</h1>
       <h2>{editingProduct ? 'Edit Product' : 'Add New Product'}</h2>
       <ProductForm
@@ -139,6 +139,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
     sizesMm: product?.sizesMm || [],
     rating: product?.rating || 0,
     price: product?.price || 0,
+    gender: product?.gender || 'male'
   });
   const [uploading, setUploading] = useState(false);
   const [localPreviews, setLocalPreviews] = useState<string[]>([]);
@@ -156,6 +157,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
         sizesMm: product.sizesMm,
         rating: product.rating,
         price: product.price,
+        gender: product.gender,
       });
     } else {
       setFormData({
@@ -168,11 +170,11 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
         sizesMm: [],
         rating: 0,
         price: 0,
+        gender: 'male',
       });
     }
   }, [product]);
 
-  // Drag&Drop обработчики
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
@@ -252,6 +254,14 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
     setFormData((prev) => ({
       ...prev,
       [name]: value.split(',').map((item) => item.trim()),
+    }));
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
     }));
   };
 
@@ -349,6 +359,19 @@ const ProductForm: React.FC<ProductFormProps> = ({ product, onSave, onCancel }) 
       <div style={{ marginBottom: '20px' }}>
         <label style={{ display: 'block', marginBottom: '5px' }}>Rating:</label>
         <input type="number" name="rating" value={formData.rating} onChange={handleChange} style={{ width: '100%', padding: '8px' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <label style={{ display: 'block', marginBottom: '5px' }}>Gender:</label>
+        <select
+          name="gender"
+          value={formData.gender}
+          onChange={handleSelectChange}
+          required
+          style={{ width: '100%', padding: '8px' }}
+        >
+          <option value="male">Мужской</option>
+          <option value="female">Женский</option>
+        </select>
       </div>
       <button type="submit" style={{ marginRight: '10px' }}>{product ? 'Save Changes' : 'Add Product'}</button>
       <button type="button" onClick={onCancel}>Cancel</button>

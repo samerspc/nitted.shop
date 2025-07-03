@@ -1,10 +1,28 @@
-import { IProduct } from '../../entities/Product';
+import { IProduct } from '../../entities/Product/types/Product';
 
 const API_BASE_URL = import.meta.env.VITE_API_URI; // Изменено на 5000 для локального запуска
 
 export const productApi = {
-  getAllProducts: async (): Promise<IProduct[]> => {
-    const response = await fetch(API_BASE_URL);
+  getAllProducts: async (query = ''): Promise<IProduct[]> => {
+    const response = await fetch(API_BASE_URL + query);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  },
+
+  getBrands: async (gender?: string): Promise<string[]> => {
+    const url = `${API_BASE_URL}/brands/all${gender ? `?gender=${gender}` : ''}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  },
+
+  getSizes: async (gender?: string): Promise<{ sizesEu: string[]; sizesUs: string[]; sizesMm: string[] }> => {
+    const url = `${API_BASE_URL}/sizes/all${gender ? `?gender=${gender}` : ''}`;
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
