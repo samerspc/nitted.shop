@@ -11,6 +11,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      '@app': resolve(__dirname, 'src/app'),
+      '@entities': resolve(__dirname, 'src/entities'),
       '@shared': resolve(__dirname, 'src/shared'),
       
     }
