@@ -1,0 +1,42 @@
+.closeIcon {
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    gap: 70px;
+    top: 100px;
+    left: 330px;
+}
+
+.imgs {
+    display: flex;
+    flex-direction: column;
+}
+
+.imgs img {
+    width: 560px;
+    height: 630px;
+}
+
+.info_wrapper {
+
+}
+
+.gap10 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gap40 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
