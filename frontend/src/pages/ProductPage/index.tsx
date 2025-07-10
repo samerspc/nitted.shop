@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { productApi } from '@shared/api/productApi';
 import { IProduct } from '@entities/Product/types/Product';
 import closeIcon from '/product_page/close.svg'
+import { useDispatch } from 'react-redux';
+import { addToCart, openCart, openQuickBuy } from '@store/cartSlice';
 
 import styles from './index.module.css'
 
@@ -14,6 +16,7 @@ const ProductPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [sizeMetrick, setSizeMetrick] = useState<'eu' | 'us' | 'mm'>('eu');
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!id) return;
@@ -114,8 +117,15 @@ const ProductPage = () => {
           </div>
 
           <div className={`${styles.buttons} ${styles.gap10}`}>
-              <button className={styles.addToCart}>Добавить в корзину</button>
-              <button className={styles.buyNow}>Купить в 1 клик</button>
+              <button className={styles.addToCart} onClick={() => {
+                if (!selectedSize) return alert('Выберите размер!');
+                dispatch(addToCart({ ...product, selectedSize, quantity: 1 }));
+                dispatch(openCart());
+              }}>Добавить в корзину</button>
+              <button className={styles.buyNow} onClick={() => {
+                if (!selectedSize) return alert('Выберите размер!');
+                dispatch(openQuickBuy({ ...product, selectedSize, quantity: 1 }));
+              }}>Купить в 1 клик</button>
           </div>
       </div>
     </div>

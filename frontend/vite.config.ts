@@ -14,7 +14,8 @@ export default defineConfig({
       '@app': resolve(__dirname, 'src/app'),
       '@entities': resolve(__dirname, 'src/entities'),
       '@shared': resolve(__dirname, 'src/shared'),
-      
+      '@widgets': resolve(__dirname, 'src/widgets'),
+      '@store': resolve(__dirname, 'src/store'),
     }
   }
 })

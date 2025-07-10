@@ -1,5 +1,7 @@
 import { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { openCart } from '@store/cartSlice';
 
 import styles from './index.module.css';
 import searchIcon from '/header/search.svg'
@@ -9,11 +11,11 @@ const Header: FC = () => {
     if (location.pathname.startsWith('/product')) hide = true;
     console.log(location.pathname)
 
-    const navigate = useNavigate();
     const cartHandleClick = ():void => {
-        navigate('/cart')
+        dispatch(openCart())
     }
 
+    const dispatch = useDispatch();
 
 
     return (

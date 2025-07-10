@@ -5,12 +5,14 @@ import './App.css'
 import Header from '../shared/ui/header';
 import CatalogPage from '../pages/Catalog';
 import ProductPage from '../pages/ProductPage';
+import CartPopup from '@widgets/Cart';
 
 function App() {
 
   return (
     <Router>
       <Header />
+      <CartPopup />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
