@@ -25,10 +25,6 @@
     height: 630px;
 }
 
-.info_wrapper {
-
-}
-
 .gap10 {
     display: flex;
     flex-direction: column;
@@ -39,4 +35,106 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+.info_wrapper {
+    position: fixed;
+    left: calc(330px + 560px + 70px);
+    top: 100px;
+}
+
+.info_wrapper__name {
+    font-size: 24px;
+    color: var(--color-second);
+    line-height: 100%;
+}
+
+.info_wrapper__price {
+    font-size: 24px;
+    color: var(--color-main);
+    line-height: 100%;
+    font-weight: 900;
+
+}
+
+.w600 {
+    font-weight: 600;
+}
+
+.sizes_сhooseButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.sizeChooseButton {
+    font-size: 17px;
+    line-height: 100%;
+    color: var(--color-second);
+    cursor: pointer;
+
+}
+
+.sizeChooseButtonActive {
+    color: var(--color-main);
+}
+
+.sizes_items {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sizeButton {
+    cursor: pointer;
+    width: 40px;
+    height: 36px;
+    background: white;
+    border: 1px solid rgba(62, 57, 76, 0.5);
+    color: rgba(62, 57, 76, 0.5);
+    font-size: 14px;    
+    font-family: 'Aeroport Mono';
+}
+
+.sizeButtonActive {
+    background: rgba(62, 57, 76, 0.2);
+    border: 1px solid rgba(62, 57, 76, 0.2);
+    color: var(--color-main);
+}
+
+.isInStock_text, .inStock, .notInStock {
+    font-size: 14px;
+    line-height: 120%;
+}
+
+.isInStock_text {
+    color: var(--color-second);
+}
+
+.inStock {
+    color: var(--color-inStock);
+}
+
+.notInStock {
+    color: var(--color-notInStock);
+}
+
+.buttons button {
+    width: 300px;
+    height: 40px;
+    font-family: 'Aeroport Mono';
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.addToCart {
+    background-color: white;
+    color: var(--color-main);
+    border: 1px solid var(--сolor-main);
+}
+
+.buyNow {
+    background-color: rgba(62, 57, 76, 1);
+    color: white;
+    border: 1px solid var(--сolor-main);
 }

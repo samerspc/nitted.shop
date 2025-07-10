@@ -12,6 +12,8 @@ const ProductPage = () => {
   const [product, setProduct] = useState<IProduct | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [sizeMetrick, setSizeMetrick] = useState<'eu' | 'us' | 'mm'>('eu');
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -42,40 +44,79 @@ const ProductPage = () => {
       <div className={`${styles.info_wrapper} ${styles.gap40}`}>
           <div className={styles.gap10}>
             <p className={styles.info_wrapper__name}>{product.name}</p>
-            <p className={styles.info_wrapper__price}>{product.price}$</p>
+            <p className={styles.info_wrapper__price}>
+              {product.price}
+              <span className={`aeroport ${styles.w600}`}>$</span>
+            </p>
           </div>
           
-          <div className={styles.sizes_wrapper}>  
-            <div className={styles.sizes_buttons}>
-
+          <div className={styles.gap10}>  
+            <div className={styles.sizes_сhooseButtons}>
+              <p className={`${sizeMetrick === 'eu' && styles.sizeChooseButtonActive} ${styles.sizeChooseButton}`} 
+              onClick={() => setSizeMetrick('eu')}>
+                Eu
+              </p>
+              <p className={`${sizeMetrick === 'us' && styles.sizeChooseButtonActive} ${styles.sizeChooseButton}`}
+              onClick={() => setSizeMetrick('us')}>
+                Us
+              </p>
+              <p className={`${sizeMetrick === 'mm' && styles.sizeChooseButtonActive} ${styles.sizeChooseButton}`}
+              onClick={() => setSizeMetrick('mm')}>
+                Mm
+              </p>
             </div>
             
             <div className={styles.sizes_items}>
-
+              { sizeMetrick === 'eu' &&
+                product.sizesEu.map((item, i) => (
+                  <button
+                    key={i}
+                    className={`${selectedSize === item ? styles.sizeButtonActive : ''} ${styles.sizeButton}`}
+                    onClick={() => setSelectedSize(item)}
+                    type="button"
+                  >
+                    {item}
+                  </button>
+                ))
+              }
+              { sizeMetrick === 'us' &&
+                product.sizesUs.map((item, i) => (
+                  <button
+                    key={i}
+                    className={`${selectedSize === item ? styles.sizeButtonActive : ''} ${styles.sizeButton}`}
+                    onClick={() => setSelectedSize(item)}
+                    type="button"
+                  >
+                    {item}
+                  </button>
+                ))
+              }
+              { sizeMetrick === 'mm' &&
+                product.sizesMm.map((item, i) => (
+                  <button
+                    key={i}
+                    className={`${selectedSize === item ? styles.sizeButtonActive : ''} ${styles.sizeButton}`}
+                    onClick={() => setSelectedSize(item)}
+                    type="button"
+                  >
+                    {item}
+                  </button>
+                ))
+              }
             </div>
             
             <p>
               {product.inStock ? 
-                <><span>В наличии.</span> <span>Доставка по Москве бесплатно.</span></>
-                : <><span>На заказ.</span> <span>Доставка в течение 2-3 недель.</span></>
+                <><span className={styles.inStock}>В наличии.</span> <span className={styles.isInStock_text}>Доставка по Москве бесплатно.</span></>
+                : <><span className={styles.notInStock}>На заказ.</span> <span className={styles.isInStock_text}>Доставка в течение 2-3 недель.</span></>
               }
             </p>
           </div>
 
-          <div className={styles.buttons}>
-              <button></button>
-              <button></button>
+          <div className={`${styles.buttons} ${styles.gap10}`}>
+              <button className={styles.addToCart}>Добавить в корзину</button>
+              <button className={styles.buyNow}>Купить в 1 клик</button>
           </div>
-          {/* <div>
-            <p><b>Бренд:</b> {product.brand}</p>
-            <p><b>Цена:</b> {product.price} <span className="aeroport">$</span></p>
-            <p><b>В наличии:</b> {product.inStock ? 'Да' : 'Нет'}</p>
-            <p><b>Рейтинг:</b> {product.rating}</p>
-            <p><b>Пол:</b> {product.gender === 'male' ? 'Мужской' : 'Женский'}</p>
-            <p><b>Размеры EU:</b> {product.sizesEu.join(', ')}</p>
-            <p><b>Размеры US:</b> {product.sizesUs.join(', ')}</p>
-            <p><b>Размеры MM:</b> {product.sizesMm.join(', ')}</p>
-          </div> */}
       </div>
     </div>
     </>
