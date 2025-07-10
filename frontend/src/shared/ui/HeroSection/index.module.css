@@ -33,7 +33,6 @@
 .texts_links {
     display: flex;
     justify-content: space-between;
-
 }
 
 .texts_links a {
@@ -53,9 +52,12 @@
     background: var(--color-second);
 }
 
-.item1, .item2, .item3, .item4 {
+.item1,
+.item2,
+.item3,
+.item4 {
     position: absolute;
-} 
+}
 
 .item1 {
     width: 285px;
@@ -96,18 +98,18 @@
         position: absolute;
         top: 200px;
         left: 50%;
-    
+
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .texts_logo {
         font-size: 28px;
         line-height: 100%;
         letter-spacing: 0em;
     }
-    
+
     .texts_p {
         height: 68px;
         font-size: 17px;
@@ -115,13 +117,12 @@
         letter-spacing: -0.04em;
         color: var(--color-second);
     }
-    
+
     .texts_links {
         display: flex;
         justify-content: space-between;
-    
     }
-    
+
     .texts_links a {
         width: fit-content;
         height: fit-content;
@@ -131,29 +132,32 @@
         color: var(--colot-main);
         text-decoration: none;
     }
-    
+
     .texts_links a:hover {
         background: var(--color-second);
     }
-    
-    .item1, .item2, .item3, .item4 {
+
+    .item1,
+    .item2,
+    .item3,
+    .item4 {
         position: absolute;
-    } 
-    
+    }
+
     .item1 {
         width: 207px;
         height: 224px;
         top: 200px;
         left: 88px;
     }
-    
+
     .item2 {
         width: 223.22px;
         height: 335px;
         top: 424px;
         left: 335px;
     }
-    
+
     .item3 {
         width: 400.66px;
         height: 267px;
@@ -162,12 +166,12 @@
         right: 269px;
         bottom: 0;
     }
-    
+
     .item4 {
         width: 139px;
         height: 209px;
         top: 103px;
         left: inherit;
         right: 21px;
-    }    
+    }
 }

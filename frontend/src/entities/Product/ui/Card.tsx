@@ -1,12 +1,19 @@
-import { FC, useState } from "react";
-import { ICard } from "../types/Card";
-import { useNavigate } from "react-router-dom";
+import { FC, useState } from 'react';
+import { ICard } from '../types/Card';
+import { useNavigate } from 'react-router-dom';
 
-import styles from './index.module.css'
+import styles from './index.module.css';
 
-const Card: FC<ICard> = ({data, className, customPlaceLeft, customPlaceRight, customPlaceTop, customPlaceBottom}) => {
+const Card: FC<ICard> = ({
+    data,
+    className,
+    customPlaceLeft,
+    customPlaceRight,
+    customPlaceTop,
+    customPlaceBottom,
+}) => {
     const navigate = useNavigate();
-    
+
     const [isHovered, setIsHovered] = useState(false);
 
     let customPlace: boolean = false;
@@ -18,8 +25,8 @@ const Card: FC<ICard> = ({data, className, customPlaceLeft, customPlaceRight, cu
             left: customPlaceLeft,
             right: customPlaceRight,
             top: customPlaceTop,
-            bottom: customPlaceBottom
-        }
+            bottom: customPlaceBottom,
+        };
     }
 
     const imageUrl = isHovered && data.images[1] ? data.images[1] : data.images[0];
@@ -32,38 +39,56 @@ const Card: FC<ICard> = ({data, className, customPlaceLeft, customPlaceRight, cu
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            
             <div
                 className={
-                    className == 'default' ? styles.imgPlaceDefault 
-                    : className == 'mini' ? styles.imgPlaceMini
-                    : className == 'mid' ? styles.imgPlaceMid 
-                    : className == 'large' ? styles.imgPlaceLarge : ''
+                    className == 'default'
+                        ? styles.imgPlaceDefault
+                        : className == 'mini'
+                          ? styles.imgPlaceMini
+                          : className == 'mid'
+                            ? styles.imgPlaceMid
+                            : className == 'large'
+                              ? styles.imgPlaceLarge
+                              : ''
                 }
                 style={{ backgroundImage: `url(${imageUrl})` }}
             />
-            
-            <p className={`${
-                className == 'default' ? styles.default_p
-                : className == 'mini' ? styles.mini_p
-                : className == 'mid' ? styles.mid_p 
-                : className == 'large' ? styles.large_p : ''
-            } second-color`}>
+
+            <p
+                className={`${
+                    className == 'default'
+                        ? styles.default_p
+                        : className == 'mini'
+                          ? styles.mini_p
+                          : className == 'mid'
+                            ? styles.mid_p
+                            : className == 'large'
+                              ? styles.large_p
+                              : ''
+                } second-color`}
+            >
                 {data.name}
             </p>
-            
-            <p className={`${
-                className == 'default' ? styles.default_p
-                : className == 'mini' ? styles.mini_p
-                : className == 'mid' ? styles.mid_p 
-                : className == 'large' ? styles.large_p : ''
-            } main-color`}>
+
+            <p
+                className={`${
+                    className == 'default'
+                        ? styles.default_p
+                        : className == 'mini'
+                          ? styles.mini_p
+                          : className == 'mid'
+                            ? styles.mid_p
+                            : className == 'large'
+                              ? styles.large_p
+                              : ''
+                } main-color`}
+            >
                 {data.price}
                 <span className="aeroport">$</span>
             </p>
         </div>
     );
-}
+};
 
 export default Card;
 //   {

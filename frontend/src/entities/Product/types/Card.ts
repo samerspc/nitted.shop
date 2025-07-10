@@ -1,4 +1,4 @@
-import { IProduct } from '@entities/Product/types/Product'
+import { IProduct } from '@entities/Product/types/Product';
 
 export interface ICard {
     data: IProduct;

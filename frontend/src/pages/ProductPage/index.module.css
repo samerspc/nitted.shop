@@ -54,7 +54,6 @@
     color: var(--color-main);
     line-height: 100%;
     font-weight: 900;
-
 }
 
 .w600 {
@@ -71,7 +70,6 @@
     line-height: 100%;
     color: var(--color-second);
     cursor: pointer;
-
 }
 
 .sizeChooseButtonActive {
@@ -92,7 +90,7 @@
     background: white;
     border: 1px solid rgba(62, 57, 76, 0.5);
     color: rgba(62, 57, 76, 0.5);
-    font-size: 14px;    
+    font-size: 14px;
     font-family: 'Aeroport Mono';
 }
 
@@ -102,7 +100,9 @@
     color: var(--color-main);
 }
 
-.isInStock_text, .inStock, .notInStock {
+.isInStock_text,
+.inStock,
+.notInStock {
     font-size: 14px;
     line-height: 120%;
 }
