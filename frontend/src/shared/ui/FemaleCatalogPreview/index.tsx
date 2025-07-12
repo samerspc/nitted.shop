@@ -27,15 +27,25 @@ const product = {
 } as IProduct;
 
 const FemaleCatalogPreview: FC = () => {
+    const windWidth = window.innerWidth;
+    const isMobile: boolean = windWidth <= 600 ? true : false;
+    const isLaptop: boolean = (windWidth > 600 && windWidth <= 1800) ? true : false;
     return (
         <>
             <section className={styles.wrapper}>
                 <p className={styles.h1}>Женская одежда</p>
 
                 <div className={styles.cards_wrapper}>
-                    <Card data={product} className={'large'} customPlaceLeft={40} />
+                    { isMobile ?
+                        <>
+                        <Card data={product} className={'default'} />
+                        <Card data={product} className={'default'} />
+                        </>
+                    :
+                    <>
+                    <Card data={product} className={'large'} customPlaceLeft={isLaptop ? 20 : 40} />
 
-                    <Card data={product} className={'mini'} customPlaceLeft={585} />
+                    <Card data={product} className={'mini'} customPlaceLeft={isLaptop ? 416 : 585} />
 
                     <div className={styles.mid_cards_wrapper}>
                         <div className={styles.mid_cards}>
@@ -46,6 +56,8 @@ const FemaleCatalogPreview: FC = () => {
                             Вся женская одежда
                         </Link>
                     </div>
+                    </>
+                    }
                 </div>
             </section>
         </>

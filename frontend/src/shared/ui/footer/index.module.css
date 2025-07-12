@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0;
+    margin-top: 154px;
 }
 
 .wrapper a {
@@ -29,4 +30,60 @@
 
 .kaya:hover {
     background: var(--color-second);
+}
+
+@media screen and (max-width: 1800px) {
+    .wrapper {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        padding: 20px 20px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+        margin-top: 154px;
+    }
+    
+    .wrapper a {
+        text-decoration: none;
+    }
+    
+    .logo {
+        padding: 4px;
+        background-color: var(--сolor-main);
+        color: white;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .wrapper {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        padding: 20px 12px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+        margin-top: 100px;
+    }
+    
+    .wrapper a {
+        text-decoration: none;
+    }
+    
+    .logo {
+        padding: 4px;
+        background-color: var(--сolor-main);
+        color: white;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+    }
+
+    .kaya {
+        font-size: 14px;
+    }
 }
