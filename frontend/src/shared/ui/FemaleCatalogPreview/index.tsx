@@ -52,7 +52,7 @@ const FemaleCatalogPreview: FC = () => {
                             <Card data={product} className={'default'} />
                             <Card data={product} className={'default'} />
                         </div>
-                        <Link to="/calalog/female" className={styles.mid_cards_wrapper_link}>
+                        <Link to="/catalog/female" className={styles.mid_cards_wrapper_link}>
                             Вся женская одежда
                         </Link>
                     </div>
