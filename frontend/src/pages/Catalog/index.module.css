@@ -316,67 +316,72 @@
 
 @media screen and (max-width: 600px) {
     .wrapper {
-        width: calc(100vw - 260px);
+        width: 100vw;
         min-height: 100vh;
         position: relative;
-        top: 120px;
+        top: 72px;
     }
     
     .aside {
-        width: 260px;
+        width: 100vw;
         height: 100%;
-        position: fixed;
-        top: 283px;
-        left: 40px;
+        position: relative;
+        top: 40px;
+        left: 0;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: inherit;
+        row-gap: 15px;
+        column-gap: 32px;
+        flex-wrap: wrap;
+        padding: 0 16px;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .brand_button {
-        width: 152px;
+        width: fit-content;
         height: fit-content;
-        font-size: 17px;
+        font-size: 14px;
         letter-spacing: -0.02em;
         line-height: 100%;
-        text-align: left;
+        text-align: center;
     
         margin: 0;
         padding: 4px;
         background: transparent;
         border: 0;
-        font-family: 'Aeroport Mono';
         transition: background 0.4s ease-out;
         cursor: pointer;
     
         white-space: normal;
         word-break: break-word;
         overflow-wrap: anywhere;
-    }
-    
-    .brand_button:hover {
-        background: var(--color-second);
-    }
-    
-    .brand_button.active {
-        background: var(--color-second);
+        color: rgba(62, 57, 76, 1);
+
     }
     
     .h1 {
-        font-size: 50px;
-        margin-left: 260px;
+        font-size: 32px;
+        width: fit-content;
+        margin: 0;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .sorts_wrapper {
         display: flex;
         gap: 23px;
         position: relative;
-        left: 260px;
-        top: 78px;
+        left: 0;
+        top: 87px;
+        width: 100vw;
+        padding: 0 12px;
+        justify-content: space-between;
     }
     
     .sorts_wrapper_button_sorts {
-        width: 318px;
+        width: fit-content;
         height: 25px;
         font-family: 'Aeroport Mono';
     
@@ -385,7 +390,7 @@
         justify-content: start;
         gap: 4px;
     
-        font-size: 17px;
+        font-size: 14px;
     
         background: white;
         border: none;
@@ -402,7 +407,7 @@
         justify-content: center;
         gap: 4px;
     
-        font-size: 17px;
+        font-size: 14px;
     
         background: white;
         border: none;
@@ -416,7 +421,7 @@
         background: '#fff';
         border: 1px solid rgba(62, 57, 76, 0.2);
         z-index: 10;
-        width: 318px;
+        width: 270px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -430,7 +435,7 @@
         cursor: pointer;
         gap: 4px;
         align-items: center;
-        font-size: 17px;
+        font-size: 14px;
     }
     
     .sorts_wrapper_options_size {
@@ -454,7 +459,7 @@
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        font-size: 17px;
+        font-size: 14px;
     }
     
     .sort_icon {
@@ -466,9 +471,11 @@
         display: flex;
         flex-wrap: wrap;
         position: relative;
-        left: 260px;
-        top: calc(113px - 25px);
-        row-gap: 40px;
+        width: 366px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 102px;
+        row-gap: 20px;
         column-gap: 10px;
     }
 }

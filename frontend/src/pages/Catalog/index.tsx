@@ -159,18 +159,7 @@ const CatalogPage = () => {
                         {item}
                     </button>
                 ))}
-                {brands.map((item, i) => (
-                    <button
-                        key={i}
-                        className={
-                            styles.brand_button +
-                            (selectedBrand === item ? ' ' + styles.active : '')
-                        }
-                        onClick={() => setSelectedBrand(selectedBrand === item ? null : item)}
-                    >
-                        {item}
-                    </button>
-                ))}
+                
             </aside>
 
             <div className={styles.sorts_wrapper}>
