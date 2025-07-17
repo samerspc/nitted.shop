@@ -21,6 +21,7 @@ const ProductPage = () => {
     const isInCart = !!cartItems.find(
         (item) => item._id === product?._id && item.selectedSize === selectedSize,
     );
+    const isMobile: boolean = window.innerWidth <= 600 ? true : false;
 
     useEffect(() => {
         if (!id) return;
@@ -38,15 +39,27 @@ const ProductPage = () => {
 
     return (
         <>
-            <img
-                src={closeIcon}
-                className={styles.closeIcon}
-                onClick={() => window.history.back()}
-                alt=""
-            />
+            { isMobile ?
+                <p 
+                    className={styles.closeIcon}
+                    onClick={() => window.history.back()}>
+                        Закрыть
+                </p>
+                :
+                <img
+                    src={closeIcon}
+                    className={styles.closeIcon}
+                    onClick={() => window.history.back()}
+                    alt=""
+                />
+            }
 
             <div className={styles.wrapper}>
                 <div className={styles.imgs}>
+                    {product.images.map((item, i) => (
+                        <img key={i} src={item} alt=""
+                        className={i === 0 && isMobile ? styles.p12 : ''}/>
+                    ))}
                     {product.images.map((item, i) => (
                         <img key={i} src={item} alt="" />
                     ))}
