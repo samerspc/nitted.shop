@@ -19,7 +19,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 18px;
   transition: all 0.4s ease-out;
 }
 
@@ -208,4 +207,233 @@ label[for="tel"] input {
     cursor: pointer;
 
     margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .mobileClose {
+    position: fixed;
+    z-index: 10001;
+    top: 4px;
+    right: 12px;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+  }
+
+  .cartPopupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  
+  .cartPopup {
+    background: #fff;
+    
+    padding: 67px 12px 0 12px;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease-out;
+  }
+  
+  .cartPopup h2 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .cartPopup ul {
+    list-style: none;
+    padding: 10px 10px 10px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid rgba(217, 217, 217, 1);
+    border-bottom: 1px solid rgba(217, 217, 217, 1);
+  }
+  
+  .cartPopup li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0;
+  }
+  
+  .imgItem {
+      width: 124px;
+      height: 74px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+  }
+  
+  .infoItem {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-left: 8.89px;
+      cursor: pointer;
+  }
+  
+  .infoItem_name {
+      font-size: 14px;
+      line-height: 100%;
+      color: var(--color-main);
+  }
+  
+  .infoItem_size {
+      font-size: 12px;
+      line-height: 100%;
+      color: var(--color-second);
+  }
+  
+  .priceItem {
+      font-size: 13px;
+      margin-left: 0;
+      line-height: 100%;
+  }
+  
+  .removeFrom {
+      width: 17px;
+      height: 17px;
+      margin-left: auto;
+      cursor: pointer;
+  }
+  
+  .colorMain {
+      color: var(--color-main);
+  }
+  
+  .colorSecond {
+      color: var(--color-second);
+  }
+  
+  .orderForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  
+  .floatingLabel {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b0b0b0;
+    pointer-events: none;
+    background: transparent;
+    transition: 0.18s cubic-bezier(.4,0,.2,1);
+    font-family: 'Aeroport Mono' !important;
+  }
+  
+  .input {
+      width: 100%;
+      padding: 8px 0;
+      outline: none;
+      border: none;
+      border-radius: 0;
+      background: none;
+      transition: border 0.2s;
+      font-size: 14px;
+      line-height: 100%;
+      font-family: 'Aeroport Mono' !important;
+      border-bottom: 1px solid rgba(62, 57, 76, 1);
+  }
+  
+    
+  .input::placeholder {
+      color: #b0b0b0;
+      opacity: 1;
+  }
+  
+  .input:focus + .floatingLabel,
+  .input:not(:placeholder-shown) + .floatingLabel {
+    top: -10px;
+    left: 8px;
+    font-size: 13px;
+    color: #888;
+    background: #fff;
+    display: none;
+  }
+  
+  .inputMargin {
+      margin-top: 30px;
+  }
+  
+  label[for="tel"] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #b0b0b0;
+    font-size: 15px;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    font-family: 'Aeroport', Arial, sans-serif;
+  }
+  label[for="tel"] input {
+    flex: 1;
+    margin-right: 8px;
+  }
+  
+  .checkboxLabel {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      user-select: none;
+      line-height: 100%;
+      margin-top: 20px;
+  }
+    
+  .checkbox {
+      accent-color: #222;
+      width: 14px;
+      height: 14px;
+  }
+    
+  .inputWrapper {
+      position: relative;
+  }
+  
+  .makeOrder {
+      font-family: 'Aeroport Mono';
+      font-size: 14px;
+      line-height: 100%;
+      width: calc(100% - 24px);
+      height: 52px;
+      background: transparent;
+      color: rgba(62, 57, 76, 1);
+      border: 2px solid rgba(62, 57, 76, 1);
+      cursor: pointer;
+  
+      margin-top: 10px;
+      position: fixed;
+      bottom: 33px;
+  }
+
+  .cartTotal {
+      width: calc(100% - 24px);
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 17px;
+      line-height: 100%;
+      /* margin-top: 80px; */
+      position: fixed;
+      bottom: 95px;
+  }
 }

@@ -11,6 +11,7 @@ const CartPopup = () => {
     const { items, isCartOpen, quickBuyProduct } = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const isMobile:boolean = (window.innerWidth <= 600) ? true : false;
 
     useEffect(() => {
         if (isCartOpen || quickBuyProduct) {
@@ -48,7 +49,7 @@ const CartPopup = () => {
       const ok = await sendOrderRequest({ name, tg, phone }, products);
       if (ok) {
         alert('Заявка успешно отправлена!');
-        dispatch(clearCart());
+        if (!quickBuy) dispatch(clearCart());
         handleClose();
       } else {
         alert('Ошибка при отправке заявки. Попробуйте позже.');
@@ -58,6 +59,7 @@ const CartPopup = () => {
     if (quickBuyProduct) {
         return (
             <div className={styles.cartPopupOverlay} onClick={handleClose}>
+            {isMobile && <p  onClick={handleClose} className={styles.mobileClose}>Закрыть</p>}
             <div className={styles.cartPopup} onClick={(e) => e.stopPropagation()}>
                 <h2 className={styles.title}>Покупка в 1 клик</h2>
                 <div>
@@ -82,12 +84,21 @@ const CartPopup = () => {
                                             Размер
                                             <span className='aeroport'>:</span>
                                             {`${quickBuyProduct.selectedSize}`}</p>
+                                            {isMobile && 
+                                              <p className={styles.priceItem}>
+                                                {quickBuyProduct.price}
+                                                <span className='aeroport'>$</span>
+                                              </p>
+                                            }
                                         </div>
                                         
-                                        <p className={styles.priceItem}>
-                                          {quickBuyProduct.price}
-                                          <span className='aeroport'>$</span>
-                                        </p>
+                                        
+                                        {!isMobile && 
+                                              <p className={styles.priceItem}>
+                                                {quickBuyProduct.price}
+                                                <span className='aeroport'>$</span>
+                                              </p>
+                                            }
 
                                         <img
                                             src={remove}
@@ -104,6 +115,7 @@ const CartPopup = () => {
                                         </img>
                                     </li>
                             </ul>
+                            
 
                             <form className={styles.orderForm} onSubmit={e => handleOrderSubmit(e, true)}>
                                 <div className={styles.inputWrapper}>
@@ -161,15 +173,15 @@ const CartPopup = () => {
                                 </label>
 
                                 <div className={styles.cartTotal}>
-                                <p className={styles.colorSecond}>
-                                  Итого
-                                  <span className='aeroport'>:</span>
-                                </p>
-                                <p className={styles.colorMain}>
-                                  {quickBuyProduct.price}
-                                  <span className='aeroport'>$</span>
-                                </p>
-                              </div>
+                                  <p className={styles.colorSecond}>
+                                    Итого
+                                    <span className='aeroport'>:</span>
+                                  </p>
+                                  <p className={styles.colorMain}>
+                                    {quickBuyProduct.price}
+                                    <span className='aeroport'>$</span>
+                                  </p>
+                                </div>
 
                               <button 
                                 type="submit"
@@ -187,6 +199,7 @@ const CartPopup = () => {
 
     return (
         <div className={styles.cartPopupOverlay} onClick={handleClose}>
+            {isMobile && <p  onClick={handleClose} className={styles.mobileClose}>Закрыть</p>}
             <div className={styles.cartPopup} onClick={(e) => e.stopPropagation()}>
                 <h2 className={styles.title}>Оформление заказа</h2>
                 <div>
@@ -219,14 +232,23 @@ const CartPopup = () => {
                                           <p className={styles.infoItem_size}>
                                             Размер
                                             <span className='aeroport'>:</span>
-                                            {`${item.selectedSize}`}</p>
+                                            {`${item.selectedSize}`}
+                                          </p>
+                                          {isMobile && 
+                                            <p className={styles.priceItem}>
+                                              {item.price}
+                                              <span className='aeroport'>$</span>
+                                            </p>
+                                          }
                                         </div>
-                                        
-                                        <p className={styles.priceItem}>
-                                          {item.price}
-                                          <span className='aeroport'>$</span>
-                                        </p>
 
+                                        {!isMobile && 
+                                            <p className={styles.priceItem}>
+                                              {item.price}
+                                              <span className='aeroport'>$</span>
+                                            </p>
+                                          }
+                                        
                                         <img
                                             src={remove}
                                             className={styles.removeFrom}

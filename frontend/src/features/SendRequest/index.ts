@@ -1,8 +1,7 @@
 import { IProduct } from '@entities/Product/types/Product';
 
-// Укажите токен и chat_id вашего бота
-const TELEGRAM_BOT_TOKEN = 'ВАШ_ТОКЕН';
-const TELEGRAM_CHAT_ID = 'ВАШ_CHAT_ID';
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_CHAT_ID;
 
 interface OrderForm {
   name: string;
@@ -14,7 +13,6 @@ export async function sendOrderRequest(
   form: OrderForm,
   cartItems: (IProduct & { selectedSize?: string })[]
 ): Promise<boolean> {
-  // Формируем текст сообщения
   const productsText = cartItems.map((item, idx) =>
     `${idx + 1}) ${item.name} | Размер: ${item.selectedSize ?? '-'} | Цена: ${item.price}`
   ).join('\n');
@@ -29,7 +27,8 @@ export async function sendOrderRequest(
     `<b>Товары:</b>%0A${productsText}%0A` +
     `<b>Итого:</b> ${total}₽`;
 
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${text}&parse_mode=HTML`;
+  const encodedText = encodeURIComponent(text);
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedText}&parse_mode=HTML`;
 
   try {
     console.log(text)
