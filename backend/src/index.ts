@@ -7,7 +7,7 @@ import productsRouter from './routes/products';
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
@@ -24,6 +24,10 @@ mongoose.connect(MONGODB_URI, {
   .catch((err: any) => console.error('MongoDB connection error:', err));
 
 app.use('/api/products', productsRouter);
+
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
