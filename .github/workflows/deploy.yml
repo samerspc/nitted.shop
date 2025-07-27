@@ -28,18 +28,18 @@ jobs:
           BACKEND_ENV: ${{ secrets.BACKEND_ENV }}
           FRONTEND_ENV: ${{ secrets.FRONTEND_ENV }}
         run: |
-          ssh -o StrictHostKeyChecking=yes ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=yes ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
             mkdir -p ~/app/backend ~/app/frontend
-            echo "${BACKEND_ENV}" > ~/app/backend/.env
-            echo "${FRONTEND_ENV}" > ~/app/frontend/.env
-            EOF
+            echo \"$BACKEND_ENV\" > ~/app/backend/.env
+            echo \"$FRONTEND_ENV\" > ~/app/frontend/.env
+          "
 
       - name: Deploy on VPS
         run: |
-          ssh -o StrictHostKeyChecking=yes ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=yes ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
             cd ~/app
             git fetch --all
             git reset --hard origin/main
             docker-compose pull
             docker-compose up -d --build
-            EOF
+          "
