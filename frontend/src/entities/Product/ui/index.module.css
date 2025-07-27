@@ -1,200 +1,199 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.default {
+  width: 342px;
+  height: 454px;
+  font-size: 17px;
+}
+
+.imgPlaceDefault {
+  width: 342px;
+  height: 400px;
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.default_p {
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+.mini {
+  width: 227px;
+  height: 313px;
+  font-size: 14px;
+}
+
+.imgPlaceMini {
+  width: 227px;
+  height: 265px;
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.mini_p {
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+.mid {
+  width: 292px;
+  height: 389px;
+  font-size: 17px;
+}
+
+.imgPlaceMid {
+  width: 292px;
+  height: 341px;
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.mid_p {
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+.large {
+  width: 464.28px;
+  height: 596px;
+  font-size: 17px;
+}
+
+.imgPlaceLarge {
+  width: 464.28px;
+  height: 542px;
+  transition: background-image 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.large_p {
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 1800px) {
+  .wrapper {
     display: flex;
     flex-direction: column;
     gap: 10px;
     cursor: pointer;
     overflow: hidden;
-}
+  }
 
-.default {
-    width: 342px;
-    height: 454px;
-    font-size: 17px;
-}
-
-.imgPlaceDefault {
-    width: 342px;
-    height: 400px;
-    transition: background-image 0.3s;
-    background-size: cover;
-    background-position: center;
-}
-
-.default_p {
-    font-size: 17px;
-    line-height: 100%;
-    letter-spacing: -0.02em;
-}
-
-.mini {
-    width: 227px;
-    height: 313px;
-    font-size: 14px;
-}
-
-.imgPlaceMini {
-    width: 227px;
-    height: 265px;
-    transition: background-image 0.3s;
-    background-size: cover;
-    background-position: center;
-}
-
-.mini_p {
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: -0.02em;
-}
-
-.mid {
+  .default {
     width: 292px;
     height: 389px;
-    font-size: 17px;
-}
+    font-size: 14px;
+  }
 
-.imgPlaceMid {
+  .imgPlaceDefault {
     width: 292px;
     height: 341px;
     transition: background-image 0.3s;
     background-size: cover;
     background-position: center;
-}
+  }
 
-.mid_p {
-    font-size: 17px;
+  .default_p {
+    font-size: 14px;
     line-height: 100%;
     letter-spacing: -0.02em;
-}
+  }
 
-.large {
-    width: 464.28px;
-    height: 596px;
-    font-size: 17px;
-}
+  .mini {
+    width: 227px;
+    height: 313px;
+    font-size: 14px;
+  }
 
-.imgPlaceLarge {
-    width: 464.28px;
-    height: 542px;
+  .imgPlaceMini {
+    width: 227px;
+    height: 265px;
     transition: background-image 0.3s;
     background-size: cover;
     background-position: center;
-}
+  }
 
-.large_p {
-    font-size: 17px;
+  .mini_p {
+    font-size: 14px;
     line-height: 100%;
     letter-spacing: -0.02em;
-}
+  }
 
-@media screen and (max-width: 1800px) {
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    
-    .default {
-        width: 292px;
-        height: 389px;
-        font-size: 14px;
-    }
-    
-    .imgPlaceDefault {
-        width: 292px;
-        height: 341px;
-        transition: background-image 0.3s;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .default_p {
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-    }
-    
-    .mini {
-        width: 227px;
-        height: 313px;
-        font-size: 14px;
-    }
-    
-    .imgPlaceMini {
-        width: 227px;
-        height: 265px;
-        transition: background-image 0.3s;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .mini_p {
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-    }
-    
-    .mid {
-        width: 292px;
-        height: 389px;
-        font-size: 14px;
-    }
-    
-    .imgPlaceMid {
-        width: 292px;
-        height: 341px;
-        transition: background-image 0.3s;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .mid_p {
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-    }
-    
-    .large {
-        width: 464.28px;
-        height: 596px;
-        font-size: 14px;
-    }
-    
-    .imgPlaceLarge {
-        width: 386px;
-        height: 498px;
-        transition: background-image 0.3s;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .large_p {
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-    }
+  .mid {
+    width: 292px;
+    height: 389px;
+    font-size: 14px;
+  }
+
+  .imgPlaceMid {
+    width: 292px;
+    height: 341px;
+    transition: background-image 0.3s;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mid_p {
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+  }
+
+  .large {
+    width: 464.28px;
+    height: 596px;
+    font-size: 14px;
+  }
+
+  .imgPlaceLarge {
+    width: 386px;
+    height: 498px;
+    transition: background-image 0.3s;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .large_p {
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    
-    .default {
-        width: 178px;
-        height: 255px;
-        font-size: 12px;
-    }
-    
-    .imgPlaceDefault {
-        width: 178px;
-        height: 213px;
-        transition: background-image 0.3s;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .default_p {
-        font-size: 12px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-    }
+  .default {
+    width: 178px;
+    height: 255px;
+    font-size: 12px;
+  }
+
+  .imgPlaceDefault {
+    width: 178px;
+    height: 213px;
+    transition: background-image 0.3s;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .default_p {
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+  }
 }

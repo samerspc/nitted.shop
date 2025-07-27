@@ -1,5 +1,5 @@
 .display_none {
-    display: none !important;
+  display: none !important;
 }
 
 /* .aps_position {
@@ -7,18 +7,94 @@
 } */
 
 .wrapper {
-    width: 100%;
-    height: fit-content;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
 }
 
 .logo {
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: white;
+  padding: 4px;
+  background: rgba(62, 57, 76, 1);
+}
+
+.middle_content_wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 0;
+  align-items: center;
+  position: relative;
+  left: calc(50% - 57px - 400px); /* 50% - {logo width} - {search wrapper width} */
+}
+
+.search_wrapper {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.search_wrapper img {
+  width: 13px;
+  height: 13px;
+}
+
+.search_wrapper input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  line-height: 100%;
+}
+
+.search_wrapper input:hover,
+.search_wrapper input:focus,
+.search_wrapper input:active {
+  outline: none;
+}
+
+.middle_content_wrapper nav {
+  display: flex;
+  gap: 4px;
+}
+
+.Link {
+  text-decoration: none;
+  color: var(--color-main);
+  padding: 4px;
+  background: transparent;
+  transition: background 0.4s ease-out;
+  font-size: 17px;
+}
+
+.cart {
+  cursor: pointer;
+  font-size: 17px;
+  margin-left: auto;
+  padding: 4px;
+  transition: background 0.4s ease-out;
+}
+
+.Link:hover,
+.cart:hover {
+  background: var(--color-second);
+}
+
+@media (max-width: 1800px) {
+  .logo {
     font-size: 20px;
     line-height: 100%;
     letter-spacing: -0.02em;
@@ -26,230 +102,155 @@
     color: white;
     padding: 4px;
     background: rgba(62, 57, 76, 1);
-}
+  }
 
-.middle_content_wrapper {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    gap: 0;
-    align-items: center;
+  .middle_content_wrapper {
     position: relative;
-    left: calc(50% - 57px - 400px); /* 50% - {logo width} - {search wrapper width} */
+    left: calc(50% - 57px - 278px);
+  }
+
+  .search_wrapper {
+    width: 278px;
+    height: 100%;
+  }
+
+  .search_wrapper input {
+    font-size: 14px;
+  }
+
+  .Link {
+    font-size: 14px;
+  }
+
+  .cart {
+    font-size: 14px;
+  }
 }
 
-.search_wrapper {
-    width: 400px;
-    height: 100%;
+@media (max-width: 600px) {
+  .wrapper {
+    width: calc(100% - 24px);
+    height: fit-content;
+    padding: 3px 0;
+    position: fixed;
+    z-index: 9999;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
     align-items: center;
-}
+  }
 
-.search_wrapper img {
-    width: 13px;
-    height: 13px;
-}
+  .wrapperOpenMenu {
+    background: rgba(62, 57, 76, 0.1);
+  }
 
-.search_wrapper input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
-    font-size: 17px;
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
     line-height: 100%;
-}
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: white;
+    padding: 4px;
+    background: rgba(62, 57, 76, 1);
+  }
+  .logoMenuOpen {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--color-main);
+    padding: 4px;
+  }
 
-.search_wrapper input:hover,
-.search_wrapper input:focus,
-.search_wrapper input:active {
-    outline: none;
-}
-
-.middle_content_wrapper nav {
-    display: flex;
-    gap: 4px;
-}
-
-.Link {
+  .Link {
     text-decoration: none;
     color: var(--color-main);
     padding: 4px;
     background: transparent;
     transition: background 0.4s ease-out;
     font-size: 17px;
-}
+  }
 
-.cart {
+  .cart {
     cursor: pointer;
-    font-size: 17px;
+    font-size: 14px;
     margin-left: auto;
     padding: 4px;
     transition: background 0.4s ease-out;
-}
+  }
 
-.Link:hover,
-.cart:hover {
-    background: var(--color-second);
-}
+  .mobileMenuTitle {
+    font-size: 14px;
+  }
 
-@media (max-width: 1800px) {
-    .logo {
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-        text-decoration: none;
-        color: white;
-        padding: 4px;
-        background: rgba(62, 57, 76, 1);
-    }
+  .mobileMenuPopUp_layout {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    position: fixed;
+    z-index: 9998;
+    padding: 45px 12px;
+  }
 
-    .middle_content_wrapper {
-        position: relative;
-        left: calc(50% - 57px - 278px);
-    }
+  .mobileMenuPopUp_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: rgba(62, 57, 76, 0.2);
+    width: 159px;
+    padding-left: 4px;
+  }
 
-    .search_wrapper {
-        width: 278px;
-        height: 100%;
-    }
+  .mobileMenuPopUp_menu_link {
+    height: 22px;
+    color: var(--color-main);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
 
-    .search_wrapper input {
-        font-size: 14px;
-    }
+  .ctalogMenuLogo {
+    font-size: 24px;
+    color: var(--color-main);
+    text-decoration: none;
+  }
 
-    .Link {
-        font-size: 14px;
-    }
+  .search_wrapper {
+    width: 254px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-    .cart {
-        font-size: 14px;
-    }
-}
+  .search_wrapper img {
+    width: 13px;
+    height: 13px;
+  }
 
-@media (max-width: 600px) {
-    .wrapper {
-        width: calc(100% - 24px);
-        height: fit-content;
-        padding: 3px 0;
-        position: fixed;
-        z-index: 9999;
-        top: 4px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  .search_wrapper input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    line-height: 100%;
+    border: 1px solid rgba(62, 57, 76, 0.2);
+    margin-top: 3px;
+    padding-left: 4px;
+  }
 
-    .wrapperOpenMenu {
-        background: rgba(62, 57, 76, 0.1);
-    }
-    
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-        text-decoration: none;
-        color: white;
-        padding: 4px;
-        background: rgba(62, 57, 76, 1);
-    }
-    .logoMenuOpen {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-        text-decoration: none;
-        color: var(--color-main);
-        padding: 4px;
-    }
-    
-    .Link {
-        text-decoration: none;
-        color: var(--color-main);
-        padding: 4px;
-        background: transparent;
-        transition: background 0.4s ease-out;
-        font-size: 17px;
-    }
-    
-    .cart {
-        cursor: pointer;
-        font-size: 14px;
-        margin-left: auto;
-        padding: 4px;
-        transition: background 0.4s ease-out;
-    }
-
-    .mobileMenuTitle {
-        font-size: 14px;
-    }
-
-    .mobileMenuPopUp_layout {
-        width: 100vw;
-        height: 100vh;
-        background: white;
-        position: fixed;
-        z-index: 9998;
-        padding: 45px 12px;
-    }
-
-    .mobileMenuPopUp_menu {
-        display: flex;
-        flex-direction: column;
-        gap: 4px; 
-        background: rgba(62, 57, 76, 0.2);
-        width: 159px;
-        padding-left: 4px;
-    }
-
-    .mobileMenuPopUp_menu_link {
-        height: 22px;
-        color: var(--color-main);
-        text-decoration: none;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-    }
-
-    .ctalogMenuLogo {
-        font-size: 24px;
-        color: var(--color-main);
-        text-decoration: none;
-    }
-
-    .search_wrapper {
-        width: 254px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-    
-    .search_wrapper img {
-        width: 13px;
-        height: 13px;
-    }
-    
-    .search_wrapper input {
-        width: 100%;
-        height: 100%;
-        border: none;
-        background: transparent;
-        font-size: 17px;
-        line-height: 100%;
-        border: 1px solid rgba(62, 57, 76, 0.2);
-        margin-top: 3px;padding-left: 4px;
-    }
-    
-    .search_wrapper input:hover,
-    .search_wrapper input:focus,
-    .search_wrapper input:active {
-        outline: none;
-    }
+  .search_wrapper input:hover,
+  .search_wrapper input:focus,
+  .search_wrapper input:active {
+    outline: none;
+  }
 }

@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
 
 .cartPopup {
   background: #fff;
-  
+
   padding: 40px 30px;
   width: 580px;
   position: relative;
@@ -40,71 +40,71 @@
 }
 
 .cartPopup li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 .imgItem {
-    width: 146px;
-    height: 87px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  width: 146px;
+  height: 87px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .infoItem {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-left: 10px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .infoItem_name {
-    font-size: 17px;
-    line-height: 100%;
-    color: var(--color-main);
+  font-size: 17px;
+  line-height: 100%;
+  color: var(--color-main);
 }
 
 .infoItem_size {
-    font-size: 14px;
-    line-height: 100%;
-    color: var(--color-second);
+  font-size: 14px;
+  line-height: 100%;
+  color: var(--color-second);
 }
 
 .priceItem {
-    font-size: 21px;
-    margin-left: 50px;
-    line-height: 100%;
+  font-size: 21px;
+  margin-left: 50px;
+  line-height: 100%;
 }
 
 .removeFrom {
-    width: 14px;
-    height: 14px;
-    margin-left: auto;
-    cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 .colorMain {
-    color: var(--color-main);
+  color: var(--color-main);
 }
 
 .colorSecond {
-    color: var(--color-second);
+  color: var(--color-second);
 }
 
 .cartTotal {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 21px;
-    line-height: 100%;
-    margin-top: 60px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 21px;
+  line-height: 100%;
+  margin-top: 60px;
 }
 
 .orderForm {
@@ -122,28 +122,27 @@
   color: #b0b0b0;
   pointer-events: none;
   background: transparent;
-  transition: 0.18s cubic-bezier(.4,0,.2,1);
+  transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Aeroport Mono' !important;
 }
 
 .input {
-    width: 100%;
-    padding: 10px 0;
-    outline: none;
-    border: none;
-    border-radius: 0;
-    background: none;
-    transition: border 0.2s;
-    font-size: 17px;
-    line-height: 100%;
-    font-family: 'Aeroport Mono' !important;
-    border-bottom: 1px solid rgba(62, 57, 76, 1);
+  width: 100%;
+  padding: 10px 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  transition: border 0.2s;
+  font-size: 17px;
+  line-height: 100%;
+  font-family: 'Aeroport Mono' !important;
+  border-bottom: 1px solid rgba(62, 57, 76, 1);
 }
 
-  
 .input::placeholder {
-    color: #b0b0b0;
-    opacity: 1;
+  color: #b0b0b0;
+  opacity: 1;
 }
 
 .input:focus + .floatingLabel,
@@ -157,10 +156,10 @@
 }
 
 .inputMargin {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-label[for="tel"] {
+label[for='tel'] {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -170,43 +169,43 @@ label[for="tel"] {
   margin-top: 2px;
   font-family: 'Aeroport', Arial, sans-serif;
 }
-label[for="tel"] input {
+label[for='tel'] input {
   flex: 1;
   margin-right: 8px;
 }
 
 .checkboxLabel {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    user-select: none;
-    line-height: 100%;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  user-select: none;
+  line-height: 100%;
+  margin-top: 20px;
 }
-  
+
 .checkbox {
-    accent-color: #222;
-    width: 14px;
-    height: 14px;
+  accent-color: #222;
+  width: 14px;
+  height: 14px;
 }
-  
+
 .inputWrapper {
-    position: relative;
+  position: relative;
 }
 
 .makeOrder {
-    font-family: 'Aeroport Mono';
-    font-size: 17px;
-    line-height: 100%;
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    color: rgba(62, 57, 76, 1);
-    border: 2px solid rgba(62, 57, 76, 1);
-    cursor: pointer;
+  font-family: 'Aeroport Mono';
+  font-size: 17px;
+  line-height: 100%;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  color: rgba(62, 57, 76, 1);
+  border: 2px solid rgba(62, 57, 76, 1);
+  cursor: pointer;
 
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -225,16 +224,16 @@ label[for="tel"] input {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10000;
   }
-  
+
   .cartPopup {
     background: #fff;
-    
+
     padding: 67px 12px 0 12px;
     width: 100vw;
     height: 100vh;
@@ -243,7 +242,7 @@ label[for="tel"] input {
     flex-direction: column;
     transition: all 0.4s ease-out;
   }
-  
+
   .cartPopup h2 {
     font-size: 32px;
     font-weight: 400;
@@ -251,7 +250,7 @@ label[for="tel"] input {
     text-align: center;
     margin-bottom: 40px;
   }
-  
+
   .cartPopup ul {
     list-style: none;
     padding: 10px 10px 10px 0;
@@ -262,71 +261,71 @@ label[for="tel"] input {
     border-top: 1px solid rgba(217, 217, 217, 1);
     border-bottom: 1px solid rgba(217, 217, 217, 1);
   }
-  
+
   .cartPopup li {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
   }
-  
+
   .imgItem {
-      width: 124px;
-      height: 74px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      cursor: pointer;
+    width: 124px;
+    height: 74px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
   }
-  
+
   .infoItem {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-left: 8.89px;
-      cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 8.89px;
+    cursor: pointer;
   }
-  
+
   .infoItem_name {
-      font-size: 14px;
-      line-height: 100%;
-      color: var(--color-main);
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--color-main);
   }
-  
+
   .infoItem_size {
-      font-size: 12px;
-      line-height: 100%;
-      color: var(--color-second);
+    font-size: 12px;
+    line-height: 100%;
+    color: var(--color-second);
   }
-  
+
   .priceItem {
-      font-size: 13px;
-      margin-left: 0;
-      line-height: 100%;
+    font-size: 13px;
+    margin-left: 0;
+    line-height: 100%;
   }
-  
+
   .removeFrom {
-      width: 17px;
-      height: 17px;
-      margin-left: auto;
-      cursor: pointer;
+    width: 17px;
+    height: 17px;
+    margin-left: auto;
+    cursor: pointer;
   }
-  
+
   .colorMain {
-      color: var(--color-main);
+    color: var(--color-main);
   }
-  
+
   .colorSecond {
-      color: var(--color-second);
+    color: var(--color-second);
   }
-  
+
   .orderForm {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
     font-size: 14px;
   }
-  
+
   .floatingLabel {
     position: absolute;
     left: 0;
@@ -335,30 +334,29 @@ label[for="tel"] input {
     color: #b0b0b0;
     pointer-events: none;
     background: transparent;
-    transition: 0.18s cubic-bezier(.4,0,.2,1);
+    transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Aeroport Mono' !important;
   }
-  
+
   .input {
-      width: 100%;
-      padding: 8px 0;
-      outline: none;
-      border: none;
-      border-radius: 0;
-      background: none;
-      transition: border 0.2s;
-      font-size: 14px;
-      line-height: 100%;
-      font-family: 'Aeroport Mono' !important;
-      border-bottom: 1px solid rgba(62, 57, 76, 1);
+    width: 100%;
+    padding: 8px 0;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    background: none;
+    transition: border 0.2s;
+    font-size: 14px;
+    line-height: 100%;
+    font-family: 'Aeroport Mono' !important;
+    border-bottom: 1px solid rgba(62, 57, 76, 1);
   }
-  
-    
+
   .input::placeholder {
-      color: #b0b0b0;
-      opacity: 1;
+    color: #b0b0b0;
+    opacity: 1;
   }
-  
+
   .input:focus + .floatingLabel,
   .input:not(:placeholder-shown) + .floatingLabel {
     top: -10px;
@@ -368,12 +366,12 @@ label[for="tel"] input {
     background: #fff;
     display: none;
   }
-  
+
   .inputMargin {
-      margin-top: 30px;
+    margin-top: 30px;
   }
-  
-  label[for="tel"] {
+
+  label[for='tel'] {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -383,57 +381,57 @@ label[for="tel"] input {
     margin-top: 2px;
     font-family: 'Aeroport', Arial, sans-serif;
   }
-  label[for="tel"] input {
+  label[for='tel'] input {
     flex: 1;
     margin-right: 8px;
   }
-  
+
   .checkboxLabel {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      user-select: none;
-      line-height: 100%;
-      margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    user-select: none;
+    line-height: 100%;
+    margin-top: 20px;
   }
-    
+
   .checkbox {
-      accent-color: #222;
-      width: 14px;
-      height: 14px;
+    accent-color: #222;
+    width: 14px;
+    height: 14px;
   }
-    
+
   .inputWrapper {
-      position: relative;
+    position: relative;
   }
-  
+
   .makeOrder {
-      font-family: 'Aeroport Mono';
-      font-size: 14px;
-      line-height: 100%;
-      width: calc(100% - 24px);
-      height: 52px;
-      background: transparent;
-      color: rgba(62, 57, 76, 1);
-      border: 2px solid rgba(62, 57, 76, 1);
-      cursor: pointer;
-  
-      margin-top: 10px;
-      position: fixed;
-      bottom: 33px;
+    font-family: 'Aeroport Mono';
+    font-size: 14px;
+    line-height: 100%;
+    width: calc(100% - 24px);
+    height: 52px;
+    background: transparent;
+    color: rgba(62, 57, 76, 1);
+    border: 2px solid rgba(62, 57, 76, 1);
+    cursor: pointer;
+
+    margin-top: 10px;
+    position: fixed;
+    bottom: 33px;
   }
 
   .cartTotal {
-      width: calc(100% - 24px);
-      height: fit-content;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 17px;
-      line-height: 100%;
-      /* margin-top: 80px; */
-      position: fixed;
-      bottom: 95px;
+    width: calc(100% - 24px);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+    line-height: 100%;
+    /* margin-top: 80px; */
+    position: fixed;
+    bottom: 95px;
   }
 }

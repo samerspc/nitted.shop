@@ -1,19 +1,19 @@
 .block {
-    padding: 20px 40px;
+  padding: 20px 40px;
 }
 
 /* mobile - 1800 (1440) */
 @media (max-width: 1800px) {
-    .block {
-        padding: 13px 20px;
-    }
+  .block {
+    padding: 13px 20px;
+  }
 }
 
 /* mobile - 1440 (1024) */
 @media (max-width: 600px) {
-    .block {
-        padding: 4px 12px;
-    }
+  .block {
+    padding: 4px 12px;
+  }
 }
 
 /* mobile - 1800 (1440) */

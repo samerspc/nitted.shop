@@ -7,15 +7,15 @@ import FemaleCatalogPreview from '@shared/ui/FemaleCatalogPreview';
 import Footer from '@shared/ui/footer';
 
 const HomePage: FC = () => {
-    return (
-        <>
-            <HeroSection />
-            <MainQuote />
-            <MaleCatalogPreview />
-            <FemaleCatalogPreview />
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <HeroSection />
+      <MainQuote />
+      <MaleCatalogPreview />
+      <FemaleCatalogPreview />
+      <Footer />
+    </>
+  );
 };
 
 export default HomePage;

@@ -8,20 +8,20 @@ import ProductPage from '../pages/ProductPage';
 import CartPopup from '@widgets/Cart';
 
 function App() {
-    return (
-        <Router>
-            <Header />
-            <CartPopup />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/catalog" element={<CatalogPage />} />
-                <Route path="/catalog/:gender" element={<CatalogPage />} />
-                <Route path="/admin" element={<AdminPanelPage />} />
-                <Route path="/product/:id" element={<ProductPage />} />
-                <Route path="*" element={<h1>404: Not Found</h1>} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Header />
+      <CartPopup />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/:gender" element={<CatalogPage />} />
+        <Route path="/admin" element={<AdminPanelPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="*" element={<h1>404: Not Found</h1>} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
