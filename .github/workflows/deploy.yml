@@ -38,8 +38,9 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=yes ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
             cd ~/app
+            docker compose down
             git fetch --all
             git reset --hard origin/main
-            docker-compose pull
-            docker-compose up -d --build
+            docker compose pull
+            docker compose up -d --build
           "
