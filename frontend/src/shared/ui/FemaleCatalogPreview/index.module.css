@@ -130,6 +130,7 @@
     height: fit-content;
     position: inherit;
     padding: 0 12px;
+    overflow: visible;
   }
 
   .h1 {
