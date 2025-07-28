@@ -1,0 +1,7 @@
+nitted.shop {
+  # for API
+  reverse_proxy /api/* backend:5001
+
+  # for static SPA
+  reverse_proxy /* frontend:80
+}
