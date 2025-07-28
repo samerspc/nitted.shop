@@ -312,7 +312,8 @@
     overflow-x: scroll;
     width: 100%;
     height: fit-content;
-    position: fixed;
+    /* position: fixed; */
+    position: initial; /* urgent fix */
   }
 
   .imgs img {
@@ -333,7 +334,8 @@
   }
 
   .info_wrapper {
-    position: fixed;
+    /* position: fixed; */
+    position: initial; /* urgent fix */
     left: 0;
     top: 450px;
     padding: 0 12px;
@@ -417,7 +419,9 @@
 
   .buttons {
     width: calc(100vw - 24px);
-    position: fixed;
+    /* position: fixed; */
+    position: initial; /* urgent fix */
+    margin-top: 108px;
     bottom: 12px;
   }
 

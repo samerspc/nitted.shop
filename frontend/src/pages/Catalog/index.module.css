@@ -69,6 +69,7 @@
   gap: 4px;
 
   font-size: 17px;
+  color: var(--сolor-main);
 
   background: white;
   border: none;
@@ -76,6 +77,7 @@
 }
 
 .sorts_wrapper_button_size {
+  color: var(--сolor-main);
   width: 70px;
   height: 25px;
   font-family: 'Aeroport Mono';
